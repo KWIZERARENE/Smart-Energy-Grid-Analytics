@@ -137,10 +137,10 @@ python anomaly_5_4.py
 docker exec -it timescaledb psql -U postgres -d smartgrid -c "SELECT view_name, materialized_only FROM timescaledb_information.continuous_aggregates;"
 
 # 10. Launch the Django telemetry dashboard and forecast server
-python unzipped/gridboard/manage.py runserver 127.0.0.1:8000
+python gridboard/manage.py runserver 127.0.0.1:8000
 
 # 11. Run the Section 7.3 parity verification script (all 5 panels must PASS)
-python unzipped/gridboard/verify_match.py 2026-09-22 2026-09-29 1000000000
+python gridboard/verify_match.py 2026-09-22 2026-09-29 1000000000
 ```
 
 ---
@@ -326,7 +326,7 @@ A dedicated Django web application providing real-time comparison between raw ta
 ### 9.3 Section 7.3 Mathematical Parity Verification
 Run the verification script to validate that both modes return numerically identical results:
 ```powershell
-python unzipped/gridboard/verify_match.py 2026-09-22 2026-09-29 1000000000
+python gridboard/verify_match.py 2026-09-22 2026-09-29 1000000000
 ```
 **Verification Output**:
 ```

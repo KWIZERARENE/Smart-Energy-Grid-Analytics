@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ name }} dashboard • Smart Grid Analytics</title>
+<link rel="stylesheet" href="{% static 'dashboard/dashboard.css' %}">
+</head>
+<body>
+<header>
+  <div class="header-brand">
+    <h1>{{ name }} Dashboard</h1>
+    <span class="brand-badge">Assignment I</span>
+  </div>
+  <div class="mode-links">
+    <a href="/raw/" class="{% if mode == 'raw' %}active raw-active{% endif %}">
+      Raw
+      <span class="mode-tag">energy_readings</span>
+    </a>
+    <a href="/aggregate/" class="{% if mode == 'aggregate' %}active agg-active{% endif %}">
+      Aggregate
+      <span class="mode-tag">cagg_*</span>
+    </a>
+    <a href="/forecast/" class="{% if mode == 'forecast' %}active forecast-active{% endif %}">
+      Forecast
+      <span class="mode-tag">Section 8 ML</span>
+    </a>
+  </div>
+  <form id="filters">
+    <label>From (CAT day) <input type="date" name="start" value="{{ start }}"></label>
+    <label>To, exclusive <input type="date" name="end" value="{{ end }}"></label>
+    <label>Meter <input type="number" name="meter" value="{{ meter }}" style="width:125px"></label>
+    <button type="submit">Refresh</button>
+    <button type="button" id="runBench">Run benchmark (1 warm-up + 10)</button>
+  </form>
+  <span id="total"></span>
+</header>
+
+<main>
+  {% for key, title in panels %}
+  <section class="panel panel-{{ key }}">
+    <div class="panel-head">
+      <h2>
+        {{ title }}
+        <span class="source-tag">
+          {% if mode == 'raw' %}
+            energy_readings
+          {% else %}
+            {% if key == 'hourly_region' %}cagg_hourly_region
+            {% elif key == 'daily_network' or key == 'weekly_network' or key == 'completeness' %}cagg_15min_region
+            {% elif key == 'meter_daily' %}cagg_daily_meter
+            {% endif %}
+          {% endif %}
+        </span>
+      </h2>
+      <div class="ms" id="ms-{{ key }}">not loaded</div>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="chart-{{ key }}"></canvas>
+    </div>
+  </section>
+  {% endfor %}
+</main>
+
+<section id="bench"></section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  window.DASH = {
+    mode: "{{ mode }}",
+    panels: [{% for key, title in panels %}"{{ key }}"{% if not forloop.last %},{% endif %}{% endfor %}]
+  };
+</script>
+<script src="{% static 'dashboard/dashboard.js' %}"></script>
+</body>
+</html>

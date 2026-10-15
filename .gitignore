@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Microsoft Office temporary lock files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Intermediate ingestion batches
+batches/
+
+# Temporary unzipped directories
+unzipped/
+power meter dashboard/
+
+# Editor / IDE directories
+.idea/
+.vscode/

@@ -1,0 +1,537 @@
+===== day (energy_readings) =====
+Finalize Aggregate  (cost=747.62..747.63 rows=1 width=24) (actual time=9.529..9.540 rows=1 loops=1)
+  Buffers: shared read=683
+  ->  Append  (cost=10.56..747.56 rows=8 width=48) (actual time=1.025..9.524 rows=8 loops=1)
+        Buffers: shared read=683
+        ->  Partial Aggregate  (cost=10.56..10.57 rows=1 width=48) (actual time=1.025..1.026 rows=1 loops=1)
+              Buffers: shared read=11
+              ->  Index Scan using _hyper_1_22_chunk_energy_readings_meter_time_idx on _hyper_1_22_chunk  (cost=0.42..10.50 rows=8 width=16) (actual time=0.052..1.015 rows=8 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared read=11
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=1.344..1.345 rows=1 loops=1)
+              Buffers: shared read=96
+              ->  Bitmap Heap Scan on _hyper_1_23_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.083..1.316 rows=93 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=93
+                    Buffers: shared read=96
+                    ->  Bitmap Index Scan on _hyper_1_23_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.059..0.059 rows=93 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=1.180..1.181 rows=1 loops=1)
+              Buffers: shared read=97
+              ->  Bitmap Heap Scan on _hyper_1_24_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.111..1.150 rows=94 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=94
+                    Buffers: shared read=97
+                    ->  Bitmap Index Scan on _hyper_1_24_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.078..0.078 rows=94 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=1.234..1.235 rows=1 loops=1)
+              Buffers: shared read=98
+              ->  Bitmap Heap Scan on _hyper_1_25_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.101..1.210 rows=95 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=95
+                    Buffers: shared read=98
+                    ->  Bitmap Index Scan on _hyper_1_25_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.075..0.075 rows=95 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=1.081..1.082 rows=1 loops=1)
+              Buffers: shared read=98
+              ->  Bitmap Heap Scan on _hyper_1_26_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.079..1.060 rows=95 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=95
+                    Buffers: shared read=98
+                    ->  Bitmap Index Scan on _hyper_1_26_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.059..0.059 rows=95 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=0.628..0.629 rows=1 loops=1)
+              Buffers: shared read=96
+              ->  Bitmap Heap Scan on _hyper_1_27_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.084..0.610 rows=93 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=93
+                    Buffers: shared read=96
+                    ->  Bitmap Index Scan on _hyper_1_27_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.061..0.062 rows=93 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=106.18..106.19 rows=1 width=48) (actual time=0.765..0.766 rows=1 loops=1)
+              Buffers: shared read=99
+              ->  Bitmap Heap Scan on _hyper_1_28_chunk  (cost=2.26..105.46 rows=95 width=16) (actual time=0.064..0.742 rows=96 loops=1)
+                    Recheck Cond: (meter_id = 1000000000)
+                    Heap Blocks: exact=96
+                    Buffers: shared read=99
+                    ->  Bitmap Index Scan on _hyper_1_28_chunk_energy_readings_meter_time_idx  (cost=0.00..2.24 rows=95 width=0) (actual time=0.045..0.045 rows=96 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared read=3
+        ->  Partial Aggregate  (cost=99.83..99.84 rows=1 width=48) (actual time=2.247..2.247 rows=1 loops=1)
+              Buffers: shared read=88
+              ->  Index Scan using _hyper_1_29_chunk_energy_readings_meter_time_idx on _hyper_1_29_chunk  (cost=0.42..99.17 rows=87 width=16) (actual time=0.489..2.225 rows=85 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared read=88
+Planning:
+  Buffers: shared hit=49 read=4
+Planning Time: 2.366 ms
+Execution Time: 10.112 ms
+
+===== 3h (energy_readings_3h) =====
+Finalize Aggregate  (cost=833.90..833.91 rows=1 width=24) (actual time=8.634..8.681 rows=1 loops=1)
+  Buffers: shared read=773
+  ->  Append  (cost=10.40..833.47 rows=57 width=48) (actual time=0.091..8.659 rows=57 loops=1)
+        Buffers: shared read=773
+        ->  Partial Aggregate  (cost=10.40..10.41 rows=1 width=48) (actual time=0.090..0.091 rows=1 loops=1)
+              Buffers: shared read=10
+              ->  Index Scan using _hyper_2_198_chunk_energy_readings_3h_meter_time_idx on _hyper_2_198_chunk  (cost=0.29..10.34 rows=8 width=16) (actual time=0.050..0.083 rows=8 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared read=10
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.086..0.087 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_199_chunk_energy_readings_3h_meter_time_idx on _hyper_2_199_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.031..0.083 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.088..0.088 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_200_chunk_energy_readings_3h_meter_time_idx on _hyper_2_200_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.031..0.083 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.145..0.146 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_201_chunk_energy_readings_3h_meter_time_idx on _hyper_2_201_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.048..0.138 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.089..0.089 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_202_chunk_energy_readings_3h_meter_time_idx on _hyper_2_202_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.041..0.085 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.081..0.081 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_203_chunk_energy_readings_3h_meter_time_idx on _hyper_2_203_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.077 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.081..0.082 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_204_chunk_energy_readings_3h_meter_time_idx on _hyper_2_204_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.030..0.078 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.080..0.081 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_205_chunk_energy_readings_3h_meter_time_idx on _hyper_2_205_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.076 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.83..14.84 rows=1 width=48) (actual time=0.076..0.077 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_206_chunk_energy_readings_3h_meter_time_idx on _hyper_2_206_chunk  (cost=0.29..14.74 rows=12 width=16) (actual time=0.030..0.073 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.102..0.102 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_207_chunk_energy_readings_3h_meter_time_idx on _hyper_2_207_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.045..0.097 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.080..0.081 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_208_chunk_energy_readings_3h_meter_time_idx on _hyper_2_208_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.032..0.077 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.083..0.084 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_209_chunk_energy_readings_3h_meter_time_idx on _hyper_2_209_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.031..0.080 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.081..0.082 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_210_chunk_energy_readings_3h_meter_time_idx on _hyper_2_210_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.077 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.086..0.087 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_211_chunk_energy_readings_3h_meter_time_idx on _hyper_2_211_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.031..0.082 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.121..0.122 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_212_chunk_energy_readings_3h_meter_time_idx on _hyper_2_212_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.068..0.116 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.097..0.097 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_213_chunk_energy_readings_3h_meter_time_idx on _hyper_2_213_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.044..0.092 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.144..0.145 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_214_chunk_energy_readings_3h_meter_time_idx on _hyper_2_214_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.035..0.108 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.088..0.089 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_215_chunk_energy_readings_3h_meter_time_idx on _hyper_2_215_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.038..0.084 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.085..0.086 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_216_chunk_energy_readings_3h_meter_time_idx on _hyper_2_216_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.028..0.081 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.087..0.088 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_217_chunk_energy_readings_3h_meter_time_idx on _hyper_2_217_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.032..0.083 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.106..0.107 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_218_chunk_energy_readings_3h_meter_time_idx on _hyper_2_218_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.037..0.101 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.091..0.092 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_219_chunk_energy_readings_3h_meter_time_idx on _hyper_2_219_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.035..0.087 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.086..0.086 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_220_chunk_energy_readings_3h_meter_time_idx on _hyper_2_220_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.031..0.082 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.087..0.088 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_221_chunk_energy_readings_3h_meter_time_idx on _hyper_2_221_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.031..0.083 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.095..0.095 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_222_chunk_energy_readings_3h_meter_time_idx on _hyper_2_222_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.039..0.091 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.088..0.088 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_223_chunk_energy_readings_3h_meter_time_idx on _hyper_2_223_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.032..0.084 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.108..0.109 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_224_chunk_energy_readings_3h_meter_time_idx on _hyper_2_224_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.045..0.103 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.087..0.088 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_225_chunk_energy_readings_3h_meter_time_idx on _hyper_2_225_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.033..0.083 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.084..0.084 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_226_chunk_energy_readings_3h_meter_time_idx on _hyper_2_226_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.030..0.081 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.480..0.481 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_227_chunk_energy_readings_3h_meter_time_idx on _hyper_2_227_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.030..0.473 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.102..0.103 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_228_chunk_energy_readings_3h_meter_time_idx on _hyper_2_228_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.043..0.096 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.094..0.094 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_229_chunk_energy_readings_3h_meter_time_idx on _hyper_2_229_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.034..0.089 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.092..0.093 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_230_chunk_energy_readings_3h_meter_time_idx on _hyper_2_230_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.036..0.088 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.081..0.082 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_231_chunk_energy_readings_3h_meter_time_idx on _hyper_2_231_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.026..0.077 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.072..0.072 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_232_chunk_energy_readings_3h_meter_time_idx on _hyper_2_232_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.027..0.068 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.073..0.074 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_233_chunk_energy_readings_3h_meter_time_idx on _hyper_2_233_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.026..0.069 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.83..14.84 rows=1 width=48) (actual time=0.071..0.071 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_234_chunk_energy_readings_3h_meter_time_idx on _hyper_2_234_chunk  (cost=0.29..14.74 rows=12 width=16) (actual time=0.025..0.067 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.071..0.072 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_235_chunk_energy_readings_3h_meter_time_idx on _hyper_2_235_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.026..0.068 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.078..0.079 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_236_chunk_energy_readings_3h_meter_time_idx on _hyper_2_236_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.075 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.424..0.424 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_237_chunk_energy_readings_3h_meter_time_idx on _hyper_2_237_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.024..0.418 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.435..0.436 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_238_chunk_energy_readings_3h_meter_time_idx on _hyper_2_238_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.036..0.429 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.369..0.370 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_239_chunk_energy_readings_3h_meter_time_idx on _hyper_2_239_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.034..0.364 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.480..0.481 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_240_chunk_energy_readings_3h_meter_time_idx on _hyper_2_240_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.473 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.089..0.089 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_241_chunk_energy_readings_3h_meter_time_idx on _hyper_2_241_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.032..0.084 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.83..14.84 rows=1 width=48) (actual time=0.081..0.081 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_242_chunk_energy_readings_3h_meter_time_idx on _hyper_2_242_chunk  (cost=0.29..14.74 rows=12 width=16) (actual time=0.028..0.077 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.075..0.076 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_243_chunk_energy_readings_3h_meter_time_idx on _hyper_2_243_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.025..0.071 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.079..0.080 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_244_chunk_energy_readings_3h_meter_time_idx on _hyper_2_244_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.027..0.075 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.079..0.080 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_245_chunk_energy_readings_3h_meter_time_idx on _hyper_2_245_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.026..0.076 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.084..0.085 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_246_chunk_energy_readings_3h_meter_time_idx on _hyper_2_246_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.034..0.080 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.076..0.077 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_247_chunk_energy_readings_3h_meter_time_idx on _hyper_2_247_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.026..0.072 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.85..14.86 rows=1 width=48) (actual time=0.082..0.082 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_248_chunk_energy_readings_3h_meter_time_idx on _hyper_2_248_chunk  (cost=0.29..14.76 rows=12 width=16) (actual time=0.030..0.077 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.556..0.556 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_249_chunk_energy_readings_3h_meter_time_idx on _hyper_2_249_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.025..0.549 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.381..0.382 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_250_chunk_energy_readings_3h_meter_time_idx on _hyper_2_250_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.031..0.375 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.453..0.454 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_251_chunk_energy_readings_3h_meter_time_idx on _hyper_2_251_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.033..0.446 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.447..0.447 rows=1 loops=1)
+              Buffers: shared read=14
+              ->  Index Scan using _hyper_2_252_chunk_energy_readings_3h_meter_time_idx on _hyper_2_252_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.392..0.441 rows=12 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=14
+        ->  Partial Aggregate  (cost=14.84..14.85 rows=1 width=48) (actual time=0.413..0.413 rows=1 loops=1)
+              Buffers: shared read=13
+              ->  Index Scan using _hyper_2_253_chunk_energy_readings_3h_meter_time_idx on _hyper_2_253_chunk  (cost=0.29..14.75 rows=12 width=16) (actual time=0.029..0.407 rows=11 loops=1)
+                    Index Cond: (meter_id = 1000000000)
+                    Buffers: shared read=13
+        ->  Partial Aggregate  (cost=5.79..5.80 rows=1 width=48) (actual time=0.056..0.056 rows=1 loops=1)
+              Buffers: shared read=6
+              ->  Index Scan using _hyper_2_254_chunk_energy_readings_3h_meter_time_idx on _hyper_2_254_chunk  (cost=0.29..5.76 rows=4 width=16) (actual time=0.039..0.052 rows=4 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared read=6
+Planning:
+  Buffers: shared hit=347 read=1
+Planning Time: 3.787 ms
+Execution Time: 10.882 ms
+
+===== week (energy_readings_week) =====
+Finalize Aggregate  (cost=744.48..744.49 rows=1 width=24) (actual time=1.177..1.179 rows=1 loops=1)
+  Buffers: shared hit=659 read=8
+  ->  Append  (cost=221.88..744.46 rows=2 width=48) (actual time=0.328..1.173 rows=2 loops=1)
+        Buffers: shared hit=659 read=8
+        ->  Partial Aggregate  (cost=221.88..221.89 rows=1 width=48) (actual time=0.327..0.328 rows=1 loops=1)
+              Buffers: shared hit=195 read=4
+              ->  Index Scan using _hyper_3_263_chunk_energy_readings_week_meter_time_idx on _hyper_3_263_chunk  (cost=0.43..220.41 rows=195 width=16) (actual time=0.038..0.299 rows=195 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared hit=195 read=4
+        ->  Partial Aggregate  (cost=522.55..522.56 rows=1 width=48) (actual time=0.842..0.842 rows=1 loops=1)
+              Buffers: shared hit=464 read=4
+              ->  Index Scan using _hyper_3_264_chunk_energy_readings_week_meter_time_idx on _hyper_3_264_chunk  (cost=0.43..519.06 rows=465 width=16) (actual time=0.044..0.728 rows=464 loops=1)
+                    Index Cond: ((meter_id = 1000000000) AND (event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Buffers: shared hit=464 read=4
+Planning:
+  Buffers: shared hit=19 read=10
+Planning Time: 0.803 ms
+Execution Time: 1.284 ms
+
+===== time_compressed (energy_time_compressed) =====
+Finalize Aggregate  (cost=10632.32..10632.33 rows=1 width=24) (actual time=88.327..95.583 rows=1 loops=1)
+  Buffers: shared hit=11763 read=2962
+  ->  Gather  (cost=1122.48..10632.28 rows=4 width=48) (actual time=34.418..95.551 rows=14 loops=1)
+        Workers Planned: 4
+        Workers Launched: 4
+        Buffers: shared hit=11763 read=2962
+        ->  Parallel Append  (cost=122.48..9631.88 rows=1 width=48) (actual time=38.126..68.064 rows=3 loops=5)
+              Buffers: shared hit=11763 read=2962
+              ->  Custom Scan (VectorAgg)  (cost=122.48..122.49 rows=1 width=48) (actual time=7.368..7.371 rows=1 loops=1)
+                    Buffers: shared hit=220 read=46
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_286_chunk  (cost=13.06..77.59 rows=5984 width=16) (actual time=0.000..0.001 rows=8 loops=1)
+                          Vectorized Filter: ((event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone) AND (meter_id = 1000000000))
+                          Rows Removed by Filter: 7992
+                          ->  Parallel Index Scan using _hyper_4_286_chunk_compressed__ts_meta_v2_first_event_time__idx on _hyper_4_286_chunk_compressed  (cost=0.15..17.75 rows=6 width=148) (actual time=0.996..3.602 rows=8 loops=1)
+                                Index Cond: ((_ts_meta_v2_first_event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (_ts_meta_v2_last_event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 24
+                                Buffers: shared hit=108 read=34
+              ->  Custom Scan (VectorAgg)  (cost=1254.18..1254.19 rows=1 width=48) (actual time=53.669..53.671 rows=1 loops=1)
+                    Buffers: shared hit=1682 read=373
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_293_chunk  (cost=10.97..745.64 rows=67805 width=16) (actual time=0.000..0.001 rows=85 loops=1)
+                          Vectorized Filter: ((event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone) AND (meter_id = 1000000000))
+                          Rows Removed by Filter: 70332
+                          ->  Parallel Seq Scan on _hyper_4_293_chunk_compressed  (cost=0.00..67.59 rows=68 width=148) (actual time=1.278..28.690 rows=71 loops=1)
+                                Filter: ((_ts_meta_v2_first_event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (_ts_meta_v2_last_event_time < '2026-09-29 00:00:00+02'::timestamp with time zone) AND _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[]))
+                                Rows Removed by Filter: 278
+                                Buffers: shared hit=835 read=314
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=52.272..52.275 rows=1 loops=1)
+                    Buffers: shared hit=1656 read=415
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_287_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.001 rows=93 loops=1)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 85059
+                          ->  Parallel Seq Scan on _hyper_4_287_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=1.256..28.012 rows=86 loops=1)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 295
+                                Buffers: shared hit=903 read=342
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=44.319..44.322 rows=1 loops=1)
+                    Buffers: shared hit=1706 read=401
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_288_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.001 rows=94 loops=1)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 89906
+                          ->  Parallel Seq Scan on _hyper_4_288_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=1.244..23.616 rows=90 loops=1)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 291
+                                Buffers: shared hit=909 read=336
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=27.171..27.174 rows=1 loops=2)
+                    Buffers: shared hit=1680 read=408
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_289_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.001 rows=48 loops=2)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 44045
+                          ->  Parallel Seq Scan on _hyper_4_289_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=0.798..15.000 rows=44 loops=2)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 146
+                                Buffers: shared hit=913 read=344
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=9.755..9.757 rows=1 loops=5)
+                    Buffers: shared hit=1710 read=419
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_290_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.000 rows=19 loops=5)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 17412
+                          ->  Parallel Seq Scan on _hyper_4_290_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=0.734..5.465 rows=18 loops=5)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 59
+                                Buffers: shared hit=961 read=346
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=23.237..23.240 rows=1 loops=2)
+                    Buffers: shared hit=1561 read=452
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_291_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.001 rows=46 loops=2)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 42454
+                          ->  Parallel Seq Scan on _hyper_4_291_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=0.519..12.894 rows=42 loops=2)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 148
+                                Buffers: shared hit=852 read=380
+              ->  Custom Scan (VectorAgg)  (cost=1375.86..1375.87 rows=1 width=48) (actual time=32.995..32.997 rows=1 loops=1)
+                    Buffers: shared hit=1548 read=448
+                    ->  Custom Scan (ColumnarScan) on _hyper_4_292_chunk  (cost=10.86..814.83 rows=74803 width=16) (actual time=0.000..0.001 rows=96 loops=1)
+                          Vectorized Filter: (meter_id = 1000000000)
+                          Rows Removed by Filter: 85904
+                          ->  Parallel Seq Scan on _hyper_4_292_chunk_compressed  (cost=0.00..66.80 rows=75 width=100) (actual time=0.259..18.245 rows=86 loops=1)
+                                Filter: _timescaledb_functions.bloom1_contains_any_hashes(_ts_meta_v2_bloomh_meter_id, '{-5521859524179266714}'::bigint[])
+                                Rows Removed by Filter: 295
+                                Buffers: shared hit=828 read=379
+Planning:
+  Buffers: shared hit=85
+Planning Time: 1.712 ms
+Execution Time: 96.268 ms
+
+===== meter_compressed (energy_meter_compressed) =====
+Finalize Aggregate  (cost=33.34..33.35 rows=1 width=24) (actual time=0.814..0.819 rows=1 loops=1)
+  Buffers: shared hit=62 read=16
+  ->  Append  (cost=4.17..33.27 rows=8 width=48) (actual time=0.103..0.804 rows=8 loops=1)
+        Buffers: shared hit=62 read=16
+        ->  Custom Scan (VectorAgg)  (cost=4.17..4.18 rows=1 width=48) (actual time=0.103..0.104 rows=1 loops=1)
+              Buffers: shared hit=10 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_315_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.001 rows=8 loops=1)
+                    Vectorized Filter: ((event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    Rows Removed by Filter: 86
+                    ->  Index Scan using _hyper_5_315_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_315_chunk_compressed  (cost=0.28..2.50 rows=1 width=124) (actual time=0.037..0.037 rows=1 loops=1)
+                          Index Cond: ((meter_id = 1000000000) AND (_ts_meta_v2_first_event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (_ts_meta_v2_last_event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.072..0.073 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_316_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=93 loops=1)
+                    ->  Index Scan using _hyper_5_316_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_316_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.025..0.026 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.249..0.250 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_317_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=94 loops=1)
+                    ->  Index Scan using _hyper_5_317_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_317_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.192..0.192 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.073..0.074 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_318_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=95 loops=1)
+                    ->  Index Scan using _hyper_5_318_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_318_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.025..0.026 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.068..0.068 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_319_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=95 loops=1)
+                    ->  Index Scan using _hyper_5_319_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_319_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.024..0.025 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.072..0.073 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_320_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=93 loops=1)
+                    ->  Index Scan using _hyper_5_320_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_320_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.029..0.029 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.16..4.17 rows=1 width=48) (actual time=0.076..0.076 rows=1 loops=1)
+              Buffers: shared hit=7 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_321_chunk  (cost=3.45..3.45 rows=95 width=16) (actual time=0.000..0.000 rows=96 loops=1)
+                    ->  Index Scan using _hyper_5_321_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_321_chunk_compressed  (cost=0.28..2.50 rows=1 width=76) (actual time=0.028..0.028 rows=1 loops=1)
+                          Index Cond: (meter_id = 1000000000)
+                          Buffers: shared hit=1 read=2
+        ->  Custom Scan (VectorAgg)  (cost=4.03..4.04 rows=1 width=48) (actual time=0.080..0.081 rows=1 loops=1)
+              Buffers: shared hit=10 read=2
+              ->  Custom Scan (ColumnarScan) on _hyper_5_322_chunk  (cost=3.37..3.37 rows=87 width=16) (actual time=0.000..0.000 rows=85 loops=1)
+                    Vectorized Filter: ((event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                    ->  Index Scan using _hyper_5_322_chunk_compressed_meter_id__ts_meta_v2_first_ev_idx on _hyper_5_322_chunk_compressed  (cost=0.28..2.50 rows=1 width=124) (actual time=0.025..0.025 rows=1 loops=1)
+                          Index Cond: ((meter_id = 1000000000) AND (_ts_meta_v2_first_event_time >= '2026-09-22 00:00:00+02'::timestamp with time zone) AND (_ts_meta_v2_last_event_time < '2026-09-29 00:00:00+02'::timestamp with time zone))
+                          Buffers: shared hit=1 read=2
+Planning:
+  Buffers: shared hit=97
+Planning Time: 2.038 ms
+Execution Time: 1.737 ms
+

@@ -1,0 +1,16 @@
+query,table,median_ms,min_ms,max_ms,session_s,baseline_day_median_ms,improvement_pct,matches_day
+Q1,day_baseline,67.24,62.15,81.74,0.46,67.24,,True
+Q1,time_compressed,73.51,66.75,79.05,0.45,67.24,-9.3,True
+Q1,meter_compressed,386.48,381.0,398.58,2.36,67.24,-474.8,True
+Q2,day_baseline,208.28,188.07,301.23,1.42,208.28,,True
+Q2,time_compressed,189.49,154.73,233.16,1.14,208.28,9.0,True
+Q2,meter_compressed,133.68,123.52,149.77,0.82,208.28,35.8,True
+Q3,day_baseline,1331.1,1287.49,1502.88,8.78,1331.1,,True
+Q3,time_compressed,406.67,374.05,510.83,2.76,1331.1,69.4,True
+Q3,meter_compressed,248.79,221.58,273.48,1.56,1331.1,81.3,True
+Q4,day_baseline,4.36,3.97,4.71,0.03,4.36,,True
+Q4,time_compressed,77.43,70.62,84.85,0.47,4.36,-1675.9,True
+Q4,meter_compressed,4.82,4.43,6.42,0.03,4.36,-10.6,True
+Q5,day_baseline,756.65,699.8,827.6,4.55,756.65,,True
+Q5,time_compressed,388.91,355.65,411.89,2.32,756.65,48.6,True
+Q5,meter_compressed,361.2,333.51,399.53,2.17,756.65,52.3,True

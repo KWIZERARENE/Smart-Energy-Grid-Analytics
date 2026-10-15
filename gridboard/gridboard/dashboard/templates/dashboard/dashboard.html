@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ name }} dashboard</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f4f5f7; color: #1c2430; }
+  header { background: #1c2430; color: #fff; padding: 12px 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 20px; }
+  header a { color: #9ecbff; text-decoration: none; }
+  header a.active { color: #fff; font-weight: 600; border-bottom: 2px solid #fff; }
+  form { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 14px; }
+  input { padding: 4px 6px; }
+  button { padding: 5px 12px; cursor: pointer; }
+  main { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 14px; padding: 14px; }
+  .panel { background: #fff; border-radius: 6px; padding: 10px 14px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .panel h2 { font-size: 15px; margin: 0 0 4px; }
+  .panel .ms { font-size: 12px; color: #667; }
+  .panel canvas { max-height: 260px; }
+  #bench { padding: 0 14px 20px; font-size: 14px; }
+  table { border-collapse: collapse; background: #fff; }
+  th, td { border: 1px solid #ccd; padding: 4px 10px; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{ name }}</h1>
+  <a href="/raw/" class="{% if mode == 'raw' %}active{% endif %}">Raw</a>
+  <a href="/aggregate/" class="{% if mode == 'aggregate' %}active{% endif %}">Aggregate</a>
+  <form id="filters">
+    <label>From (CAT day) <input type="date" name="start" value="{{ start }}"></label>
+    <label>To, exclusive <input type="date" name="end" value="{{ end }}"></label>
+    <label>Meter <input type="number" name="meter" value="{{ meter }}" style="width:120px"></label>
+    <button type="submit">Refresh</button>
+    <button type="button" id="runBench">Run benchmark (1 warm-up + 10)</button>
+  </form>
+  <span id="total" style="font-size:13px"></span>
+</header>
+
+<main>
+  {% for key, title in panels %}
+  <section class="panel">
+    <h2>{{ title }}</h2>
+    <div class="ms" id="ms-{{ key }}">not loaded</div>
+    <canvas id="chart-{{ key }}"></canvas>
+  </section>
+  {% endfor %}
+</main>
+
+<section id="bench"></section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  window.DASH = {
+    mode: "{{ mode }}",
+    panels: [{% for key, title in panels %}"{{ key }}"{% if not forloop.last %},{% endif %}{% endfor %}]
+  };
+</script>
+{% load static %}
+<script src="{% static 'dashboard/dashboard.js' %}"></script>
+</body>
+</html>
