@@ -111,7 +111,7 @@ $env:PGHOST = "127.0.0.1"
 $env:PGPORT = "5433"
 $env:PGUSER = "postgres"
 $env:PGDATABASE = "smartgrid"
-$env:PGPASSWORD = "password"  # Replace with your actual password
+$env:PGPASSWORD = "password"  
 ```
 
 ---
